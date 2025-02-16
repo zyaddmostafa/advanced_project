@@ -31,6 +31,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
+  flutter_native_splash: ^2.4.4
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.0.17
 
@@ -75,10 +76,8 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
-
 flutter_assets:
   assets_path: assets/images/
   output_path: lib/core/helper
   filename: app_assets.dart
-  field_prefix:
-
+  field_prefix: null

@@ -13,5 +13,9 @@ class Assets {
   /// Assets for imagesOnBoardringDoctor
   /// assets/images/on_boardring_doctor.png
   static const String imagesOnBoardringDoctor = "assets/images/on_boardring_doctor.png";
+
+  /// Assets for imagesSplash
+  /// assets/images/Splash.png
+  static const String imagesSplash = "assets/images/Splash.png";
 }
 
