@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_advanced/Feature/login/data/models/login_request_body.dart';
+import 'package:flutter_advanced/Feature/login/logic/cubit/login_cubit.dart';
 import 'package:flutter_advanced/Feature/login/ui/widgets/already_have_account_text.dart';
+import 'package:flutter_advanced/Feature/login/ui/widgets/email_and_password.dart';
+import 'package:flutter_advanced/Feature/login/ui/widgets/login_bloc_listener.dart';
 import 'package:flutter_advanced/Feature/login/ui/widgets/terms_and_conditions.dart';
 import 'package:flutter_advanced/core/helper/spacing.dart';
 import 'package:flutter_advanced/core/themes/styles.dart';
-import 'package:flutter_advanced/core/widgets/app_form_text_field.dart';
 import 'package:flutter_advanced/core/widgets/app_text_button.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  bool obscureText = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,31 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     'We\'re excited to have you back, can\'t wait to see what you\'ve been up to since you last logged in.',
                     style: TextStyles.font14GrayRegular),
                 verticalSpace(36),
-                Form(
-                  key: formKey,
-                  child: Column(
-                    children: [
-                      const AppFormTextField(hintText: 'Email'),
-                      verticalSpace(18),
-                      AppFormTextField(
-                        hintText: 'Password',
-                        obscureText: obscureText,
-                        suffixIcon: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              obscureText = !obscureText;
-                            });
-                          },
-                          child: Icon(
-                            obscureText
-                                ? Icons.visibility_off
-                                : Icons.visibility,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                const EmailAndPassword(),
                 verticalSpace(24),
                 Align(
                   alignment: Alignment.centerRight,
@@ -68,7 +41,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 verticalSpace(40),
                 AppTextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    validatorThenLogin(context);
+                  },
                   buttonText: 'Login',
                   textStyle: TextStyles.font16WhiteSemiBold,
                 ),
@@ -79,11 +54,21 @@ class _LoginScreenState extends State<LoginScreen> {
                   alignment: Alignment.center,
                   child: AlreadyHaveAccountText(),
                 ),
+                const LoginBlocListener(),
               ],
             ),
           ),
         ),
       ),
     );
+  }
+}
+
+void validatorThenLogin(BuildContext context) {
+  if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+    context.read<LoginCubit>().emitLoginState(LoginRequestBody(
+          email: context.read<LoginCubit>().emailController.text,
+          password: context.read<LoginCubit>().passwordController.text,
+        ));
   }
 }
