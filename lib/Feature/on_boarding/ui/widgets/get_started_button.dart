@@ -11,16 +11,16 @@ class GetStartedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(ColorManager.mainBlue),
-        minimumSize: MaterialStateProperty.all(Size(double.infinity, 52)),
-        shape: MaterialStateProperty.all(
+        backgroundColor: const WidgetStatePropertyAll(ColorManager.mainBlue),
+        minimumSize: const WidgetStatePropertyAll(Size(double.infinity, 52)),
+        shape: WidgetStatePropertyAll(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
         ),
       ),
       onPressed: () {
-        context.pushNamed(Routes.loginView);
+        context.pushNamed(Routes.loginScreen);
       },
       child: Text(
         'Get Started',
