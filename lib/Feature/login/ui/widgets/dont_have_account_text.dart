@@ -1,8 +1,11 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_advanced/core/helper/extentions.dart';
+import 'package:flutter_advanced/core/routing/routes.dart';
 import 'package:flutter_advanced/core/themes/styles.dart';
 
-class AlreadyHaveAccountText extends StatelessWidget {
-  const AlreadyHaveAccountText({super.key});
+class DontHaveAccountText extends StatelessWidget {
+  const DontHaveAccountText({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +20,10 @@ class AlreadyHaveAccountText extends StatelessWidget {
           TextSpan(
             text: 'Sign Up ',
             style: TextStyles.font11BlueMedium,
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                context.pushReplacementNamed(Routes.signUpScreen);
+              },
           ),
         ],
       ),
