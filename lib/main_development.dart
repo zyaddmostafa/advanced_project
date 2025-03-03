@@ -5,7 +5,7 @@ import 'package:flutter_advanced/doc_app.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
-  // Ensure the screen size is set before the app starts in release mode
+  // Ensure the screen size is set before the app starts in release modee
   await ScreenUtil.ensureScreenSize();
   setupGetIt();
   runApp(DocApp(
