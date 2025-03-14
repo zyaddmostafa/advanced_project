@@ -10,6 +10,10 @@ class Assets {
   /// assets/images/docdoc_logo.svg
   static const String imagesDocdocLogo = "assets/images/docdoc_logo.svg";
 
+  /// Assets for imagesNotification
+  /// assets/images/notification.svg
+  static const String imagesNotification = "assets/images/notification.svg";
+
   /// Assets for imagesOnBoardringDoctor
   /// assets/images/on_boardring_doctor.png
   static const String imagesOnBoardringDoctor = "assets/images/on_boardring_doctor.png";
