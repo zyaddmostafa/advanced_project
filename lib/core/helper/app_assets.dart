@@ -2,6 +2,14 @@
 class Assets {
   Assets._();
   
+  /// Assets for imagesContainerDoctor
+  /// assets/images/container_doctor.png
+  static const String imagesContainerDoctor = "assets/images/container_doctor.png";
+
+  /// Assets for imagesContainerPattern
+  /// assets/images/container_pattern.png
+  static const String imagesContainerPattern = "assets/images/container_pattern.png";
+
   /// Assets for imagesDocdocLogLowOpacity
   /// assets/images/docdoc_log_low_opacity.svg
   static const String imagesDocdocLogLowOpacity = "assets/images/docdoc_log_low_opacity.svg";

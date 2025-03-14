@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_advanced/Feature/home/ui/widgets/doctor_blue_container.dart';
 import 'package:flutter_advanced/Feature/home/ui/widgets/home_top_bar.dart';
+import 'package:flutter_advanced/core/helper/spacing.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -11,9 +13,11 @@ class HomeScreen extends StatelessWidget {
         child: Container(
           width: double.infinity,
           margin: const EdgeInsets.fromLTRB(20, 18, 20, 28),
-          child: const Column(
+          child: Column(
             children: [
-              HomeTopBar(),
+              const HomeTopBar(),
+              verticalSpace(16),
+              const DoctorBlueContainer(),
             ],
           ),
         ),
