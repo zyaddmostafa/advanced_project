@@ -11,9 +11,14 @@ class HomeState with _$HomeState {
   const factory HomeState.specializationloading() = Specializationloading;
 
   const factory HomeState.specializationSuccess(
-          SpecializationResponseModel specializationResponseModel) =
-      SpecializationSuccess;
+      List<SpecializationsData?>? specializationList) = SpecializationSuccess;
 
   const factory HomeState.specializationError(ErrorHandler errorHandler) =
       SpecializationError;
+// Doctors
+  const factory HomeState.doctorsSuccess(List<Doctors?>? doctorsList) =
+      DoctorsSuccess;
+
+  const factory HomeState.doctorsError(ErrorHandler errorHandler) =
+      DoctorsError;
 }

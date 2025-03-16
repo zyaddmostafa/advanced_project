@@ -11,8 +11,9 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // Ensure the screen size is set before the app starts in release mode
   await ScreenUtil.ensureScreenSize();
+  await setupGetIt();
   await checkIfLoggedInUser();
-  setupGetIt();
+
   runApp(DocApp(
     appRouter: AppRouter(),
   ));
